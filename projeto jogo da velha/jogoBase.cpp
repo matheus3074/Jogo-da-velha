@@ -1,6 +1,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+#include<locale.h>
 
 
 typedef struct {
@@ -69,7 +70,6 @@ void jogo() {
 			
 			
 			do{
-			    system("pause");
 				if (jogador == 1) {
 			        printf("%s - Digite a posicao desejada: ", jogadores[0].nome);
 			        
@@ -84,11 +84,11 @@ void jogo() {
 			    coluna = (posicao - 1) % 3;
 			
 			    // Verificar se a posição já foi escolhida antes
-			    if (posicao < 1 || posicao > 9 || jogoVelha[linha][coluna] != ' ') {
+			    if (posicao < 1 || posicao > 9 || jogoVelha[linha][coluna] != ' ' && !posicao >= 1 && !posicao <= 9) {
 			        printf("Posicao invalida. Por favor, escolha outra posicao.\n");
 			    }
 			    
-			} while (posicao < 1 || posicao > 9 || jogoVelha[linha][coluna] != ' ' && !posicao >= 1 && !posicao <= 9) ;
+			} while (posicao < 1 || posicao > 9 || jogoVelha[linha][coluna] != ' ' ) ;
 			
 		
 			
@@ -249,6 +249,7 @@ void instrucoes() {
 }
 
 int main(){
+	setlocale(LC_ALL, "");
 	int opcao;
 	
 	printf("\t####BEM VINDO AO JOGO DA VELHA####\n\n");
@@ -259,6 +260,7 @@ int main(){
 	scanf("%d", &opcao);
 	
 	switch(opcao){
+		
 		case 1:
 			jogo();
 			break;
@@ -266,6 +268,10 @@ int main(){
 			instrucoes();
 			break;
 		case 3:
-			abort();	
-	}
+			abort();
+			break;
+		default:
+		printf("Opção inválida!\n");
+		break;
+		}	
 }
