@@ -9,7 +9,7 @@ typedef struct {
 
 void jogo() {
 	Jogador jogadores[2];
-	int i, jogador, ganhou, jogadas, l, c, linha, coluna, opcao, posicao;
+	int i, jogador, ganhou, jogadas, l, c, linha, coluna, opcao, posicao,validarPosicao;
 	char jogoVelha[3][3];
 	
 
@@ -58,13 +58,17 @@ void jogo() {
 				printf("\n");
 			}
 			
-			do {
-			    if (jogador == 1) {
+			
+			do{
+			    system("pause");
+				if (jogador == 1) {
 			        printf("%s - Digite a posicao desejada: ", jogadores[0].nome);
+			        
 			    } else {
 			        printf("%s - Digite a posicao desejada: ", jogadores[1].nome);
 			    }
 			    scanf("%d", &posicao);
+			    fflush(stdin);
 			    
 			    // Calcular linha e coluna baseado na posição escolhida
 			    linha = (posicao - 1) / 3;
@@ -74,7 +78,10 @@ void jogo() {
 			    if (posicao < 1 || posicao > 9 || jogoVelha[linha][coluna] != ' ') {
 			        printf("Posicao invalida. Por favor, escolha outra posicao.\n");
 			    }
-			} while (posicao < 1 || posicao > 9 || jogoVelha[linha][coluna] != ' ');
+			    
+			} while (posicao < 1 || posicao > 9 || jogoVelha[linha][coluna] != ' ' && !posicao >= 1 && !posicao <= 9) ;
+			
+		
 			
 			switch(posicao){
 				case 1:
@@ -236,10 +243,10 @@ int main(){
 	int opcao;
 	
 	printf("\t####BEM VINDO AO JOGO DA VELHA####\n\n");
-	printf("\t01 - Iniciar o jogo.");
-	printf("\n\t02 - Instrucoes.");
-	printf("\n\t03 - Sair.");
-	printf("\n\tESCOLHA A OPCAO: ");
+	printf("01 - Iniciar o jogo.");
+	printf("\n02 - Instrucoes.");
+	printf("\n03 - Sair.");
+	printf("\nESCOLHA A OPCAO: ");
 	scanf("%d", &opcao);
 	
 	switch(opcao){
