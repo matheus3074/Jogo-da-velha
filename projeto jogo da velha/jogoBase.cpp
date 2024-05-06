@@ -11,6 +11,16 @@ void jogo() {
 	Jogador jogadores[2];
 	int i, jogador, ganhou, jogadas, l, c, linha, coluna, opcao, posicao,validarPosicao;
 	char jogoVelha[3][3];
+	char numbers[3][3];
+    numbers[0][0] = '1';
+    numbers[0][1] = '2';
+    numbers[0][2] = '3';
+    numbers[1][0] = '4';
+    numbers[1][1] = '5';
+    numbers[1][2] = '6';
+    numbers[2][0] = '7';
+	numbers[2][1] = '8';
+    numbers[2][2] = '9';
 	
 
 	for(i = 0; i < 2; i++){
@@ -35,21 +45,20 @@ void jogo() {
 		}
 		do{
 			system("cls");
-			//imprimir jogo
 			
 			//imprimir jogo
-			printf("\n\n\t 0   1   2\n\n");
 			for(l = 0; l < 3; l++){
 				for(c = 0; c < 3; c++){
 					if(c == 0){
 						printf("\t");
 					}
-					printf(" %c ", jogoVelha[l][c]);
+					if(jogoVelha[l][c] != ' '){
+                        printf(" %c ", jogoVelha[l][c]);
+                    }else{
+                        printf(" %c ", numbers[l][c]);
+                    }
 					if(c < 2) {
 						printf("|");
-					}
-					if(c == 2) {
-						printf(" %d", l);
 					}
 				}
 				if(l < 2) {
