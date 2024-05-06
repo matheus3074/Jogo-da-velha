@@ -236,10 +236,10 @@ int main(){
 	int opcao;
 	
 	printf("\t####BEM VINDO AO JOGO DA VELHA####\n\n");
-	printf("01 - Iniciar o jogo.");
-	printf("\n02 - Instrucoes.");
-	printf("\n03 - Sair.");
-	printf("\nESCOLHA A OPCAO: ");
+	printf("\t01 - Iniciar o jogo.");
+	printf("\n\t02 - Instrucoes.");
+	printf("\n\t03 - Sair.");
+	printf("\n\tESCOLHA A OPCAO: ");
 	scanf("%d", &opcao);
 	
 	switch(opcao){
