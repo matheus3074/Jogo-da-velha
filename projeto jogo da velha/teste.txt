@@ -1,0 +1,82 @@
+#include <stdlib.h>
+#include <stdio.h>
+#include <stdbool.h>
+#include <string.h>
+
+#define MAX_TAM 5
+
+typedef struct {
+    char produtos[MAX_TAM][20];
+    int qtd[MAX_TAM];
+    float preco[MAX_TAM];
+    int tamanho;
+} Lista;
+
+void inicializarLista(Lista *lista) {
+    lista->tamanho = 0;
+}
+
+bool listaCheia(Lista lista) {
+    return lista.tamanho == MAX_TAM;
+}
+
+bool listaVazia(Lista lista) {
+    return lista.tamanho == 0;
+}
+
+void limparBufferEntrada() {
+    int c;
+    while ((c = getchar()) != '\n' && c != EOF);
+}
+
+void pausar() {
+    printf("Pressione Enter para continuar...");
+    limparBufferEntrada();
+    getchar();
+}
+
+void inserirProduto(Lista *lista, char produto[]) {
+    if (!listaCheia(*lista)) {
+        strcpy(lista->produtos[lista->tamanho], produto);
+        printf("Insira a quantidade do produto: ");
+        scanf("%d", &lista->qtd[lista->tamanho]);
+        limparBufferEntrada();
+        printf("Insira o preco do produto: ");
+        scanf("%f", &lista->preco[lista->tamanho]);
+        limparBufferEntrada();
+        lista->tamanho++;
+        printf("Produto %s inserido com sucesso.\n", produto);
+    } else {
+        printf("A lista esta cheia. Nao e possivel inserir mais produtos.\n");
+    }
+    pausar();
+}
+
+void removerProduto(Lista *lista, char produto[]) {
+    int i, j;
+    bool encontrado = false;
+
+    for (i = 0; i < lista->tamanho; i++) {
+        if (strcmp(lista->produtos[i], produto) == 0) {
+            encontrado = true;
+            for (j = i; j < lista->tamanho - 1; j++) {
+                strcpy(lista->produtos[j], lista->produtos[j + 1]);
+                lista->qtd[j] = lista->qtd[j + 1];
+                lista->preco[j] = lista->preco[j + 1];
+            }
+            lista->tamanho--;
+            printf("Produto %s removido com sucesso.\n", produto);
+            break;
+        }
+    }
+
+    if (!encontrado) {
+
+
+        
+        printf("Produto %s nao encontrado na lista.\n", produto);
+    }
+    pausar();
+}
+
+void buscarProduto(Li

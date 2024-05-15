@@ -278,8 +278,23 @@ void jogo() {
 
 void instrucoes() {
 	system("cls");
-	printf("Nenhuma instrucao");
+	printf("Para jogar utilize os números do teclado.\n");
+	printf("Cada número corresponde a uma posição.\n" );
+	printf("                 |                 |                \n");
+	printf("        1        |        2        |        3       \n");
+	printf("                 |                 |                \n");
+	printf("-----------------|-----------------|----------------\n");
+	printf("                 |                 |                \n");
+	printf("        4        |        5        |        6       \n");
+	printf("                 |                 |                \n");
+	printf("-----------------|-----------------|----------------\n");
+	printf("                 |                 |                \n");
+	printf("        9        |        8        |        9       \n");
+	printf("                 |                 |                \n");
+
 }
+
+
 
 int main() {
 	setlocale(LC_ALL, " ");
