@@ -25,7 +25,6 @@ void jogo() {
 	numbers[2][1] = '8';
     numbers[2][2] = '9';
 	
-
 	for(i = 0; i < 2; i++) {
 		system("cls");
 		fflush(stdin);
@@ -39,8 +38,6 @@ void jogo() {
 		ganhou = 0;
 		jogadas = 0;
 		
-		
-		
 		for(l = 0; l < 3; l++) {
 			for(c = 0; c < 3; c++){
 				jogoVelha[l][c] = ' ';
@@ -49,7 +46,6 @@ void jogo() {
 
 		do {
 			system("cls");
-			
 			
 			for(l = 0; l < 3; l++) {
 				for(c = 0; c < 3; c++) {
@@ -91,106 +87,52 @@ void jogo() {
 			    
 			} while(posicao < 1 || posicao > 9 || jogoVelha[linha][coluna] != ' ' ) ;
 			
-		
-			
 			switch(posicao) {
 				case 1:
-					if(jogador == 1) { 
-						jogoVelha[0][0] = 'X'; 
-						jogador++;
-					} else {
-						jogoVelha[0][0] = 'O';
-						jogador--;
-					}
+					jogoVelha[0][0] = (jogador == 1) ? 'X' : 'O';
 					break;
 
 				case 2:
-					if(jogador == 1) {
-						jogoVelha[0][1] = 'X'; 
-						jogador++;
-					} else{
-						jogoVelha[0][1] = 'O';
-						jogador--;
-					}
+					jogoVelha[0][1] = (jogador == 1) ? 'X' : 'O';
 					break;
 
 				case 3:
-					if(jogador == 1) {
-						jogoVelha[0][2] = 'X'; 
-						jogador++;
-					} else{
-						jogoVelha[0][2] = 'O';
-						jogador--;
-					}
+					jogoVelha[0][2] = (jogador == 1) ? 'X' : 'O';
 					break;
 
 				case 4:
-					if(jogador == 1) {
-						jogoVelha[1][0] = 'X'; 
-						jogador++;
-					} else{
-						jogoVelha[1][0] = 'O';
-						jogador--;
-					}
+					jogoVelha[1][0] = (jogador == 1) ? 'X' : 'O';
 					break;
 
 				case 5:
-					if(jogador == 1) {
-						jogoVelha[1][1] = 'X'; 
-						jogador++;
-					} else{
-						jogoVelha[1][1] = 'O';
-						jogador--;
-					}
+					jogoVelha[1][1] = (jogador == 1) ? 'X' : 'O';
 					break;
 
 				case 6:
-					if(jogador == 1) {
-						jogoVelha[1][2] = 'X'; 
-						jogador++;
-					} else{
-						jogoVelha[1][2] = 'O';
-						jogador--;
-					}
+					jogoVelha[1][2] = (jogador == 1) ? 'X' : 'O';
 					break;
 
 				case 7:
-					if(jogador == 1) {
-						jogoVelha[2][0] = 'X'; 
-						jogador++;
-					} else{
-						jogoVelha[2][0] = 'O';
-						jogador--;
-					}
+					jogoVelha[2][0] = (jogador == 1) ? 'X' : 'O';
 					break;
 
 				case 8:
-					if(jogador == 1) {
-						jogoVelha[2][1] = 'X'; 
-						jogador++;
-					} else{
-						jogoVelha[2][1] = 'O';
-						jogador--;
-					}
+					jogoVelha[2][1] = (jogador == 1) ? 'X' : 'O';
 					break;
 
 				case 9:
-					if(jogador == 1) {
-						jogoVelha[2][2] = 'X'; 
-						jogador++;
-					} else{
-						jogoVelha[2][2] = 'O';
-						jogador--;
-					}
+					jogoVelha[2][2] = (jogador == 1) ? 'X' : 'O';
 					break;
 			}
 			
+			jogador = (jogador == 1) ? 2 : 1;
 			jogadas++;
 			
 			if(jogoVelha[0][0] == 'O' && jogoVelha[0][1] == 'O' && jogoVelha[0][2] == 'O' || 
 			   jogoVelha[1][0] == 'O' && jogoVelha[1][1] == 'O' && jogoVelha[1][2] == 'O' ||
 			   jogoVelha[2][0] == 'O' && jogoVelha[2][1] == 'O' && jogoVelha[2][2] == 'O') {
-			   	printf("\n\t----PARABÉNS JOGADOR 2 VOCÊ VENCEU----\n");
+			   	system("cls");
+				printf("\n\t----PARABENS JOGADOR 2 VOCE VENCEU----\n");
 				pontuacaoJogadorDois ++;
 			   	ganhou = 1;
 			}
@@ -198,7 +140,8 @@ void jogo() {
 			if(jogoVelha[0][0] == 'X' && jogoVelha[0][1] == 'X' && jogoVelha[0][2] == 'X' || 
 			   jogoVelha[1][0] == 'X' && jogoVelha[1][1] == 'X' && jogoVelha[1][2] == 'X' ||
 			   jogoVelha[2][0] == 'X' && jogoVelha[2][1] == 'X' && jogoVelha[2][2] == 'X') {
-			   	printf("\n\t----PARABÉNS JOGADOR 1 VOCÊ VENCEU----\n");
+			   	system("cls");
+			    printf("\n\t----PARABENS JOGADOR 1 VOCE VENCEU----\n");				
 				pontuacaoJogadorUm ++;
 			   	ganhou = 1;
 			}
@@ -206,39 +149,40 @@ void jogo() {
 			if(jogoVelha[0][0] == 'O' && jogoVelha[1][0] == 'O' && jogoVelha[2][0] == 'O' || 
 			   jogoVelha[0][1] == 'O' && jogoVelha[1][1] == 'O' && jogoVelha[2][1] == 'O' ||
 			   jogoVelha[0][2] == 'O' && jogoVelha[1][2] == 'O' && jogoVelha[2][2] == 'O') {
-			   	printf("\n\t----PARABÉNS JOGADOR 2 VOCÊ VENCEU----\n");
+			   	system("cls");
+				printf("\n\t----PARABENS JOGADOR 2 VOCE VENCEU----\n");
 				pontuacaoJogadorDois ++;
 				ganhou = 1;
-			}
-			
+		 	}
 			if(jogoVelha[0][0] == 'X' && jogoVelha[1][0] == 'X' && jogoVelha[2][0] == 'X' || 
 			   jogoVelha[0][1] == 'X' && jogoVelha[1][1] == 'X' && jogoVelha[2][1] == 'X' ||
 			   jogoVelha[0][2] == 'X' && jogoVelha[1][2] == 'X' && jogoVelha[2][2] == 'X') {
-			   	printf("\n\t----PARABÉNS JOGADOR 1 VOCÊ VENCEU----\n");
+			   	system("cls");
+			   	printf("\n\t----PARABENS JOGADOR 1 VOCE VENCEU----\n");
 				pontuacaoJogadorUm ++;
 			   	ganhou = 1;
 			}
-			
 			if(jogoVelha[0][0] == 'O' && jogoVelha[1][1] == 'O' && jogoVelha[2][2] == 'O') {
-				printf("\n\t----PARABÉNS JOGADOR 2 VOCÊ VENCEU----\n");
+				system("cls");
+				printf("\n\t----PARABENS JOGADOR 2 VOCE VENCEU----\n");
 				pontuacaoJogadorDois ++;
 				ganhou = 1;
 			}
-			
 			if(jogoVelha[0][0] == 'X' && jogoVelha[1][1] == 'X' && jogoVelha[2][2] == 'X') {
-				printf("\n\t----PARABÉNS JOGADOR 1 VOCÊ VENCEU----\n");
+				system("cls");
+				printf("\n\t----PARABENS JOGADOR 1 VOCE VENCEU----\n");
 				pontuacaoJogadorUm ++;
 				ganhou = 1;
 			}
-			
 			if(jogoVelha[0][2] == 'O' && jogoVelha[1][1] == 'O' && jogoVelha[2][0] == 'O') {
-				printf("\n\t----PARABÉNS JOGADOR 2 VOCÊ VENCEU----\n");
+				system("cls");
+				printf("\n\t----PARABENS JOGADOR 2 VOCE VENCEU----\n");
 				pontuacaoJogadorDois ++;
 				ganhou = 1;
 			}
-			
 			if(jogoVelha[0][2] == 'X' && jogoVelha[1][1] == 'X' && jogoVelha[2][0] == 'X') {
-				printf("\n\t----PARABÉNS JOGADOR 1 VOCÊ VENCEU----\n");
+				system("cls");
+				printf("\n\t----PARABENS JOGADOR 1 VOCE VENCEU----\n");
 				pontuacaoJogadorUm ++;
 				ganhou = 1;
 			}
@@ -248,16 +192,18 @@ void jogo() {
 		if(ganhou == 0) {
 			printf("\nO JOGO FINALIZOU SEM GANHADORES!!\n");
 		}
-
-		printf("\nDigite 1 para revanche: \n");  
+		
+		printf("\nDigite 1 para revanche:");
+		printf("\nDigite 0 para finalizar: \n");  
 		scanf("%d", &opcao);
 			
 	} while(opcao == 1);
 
+	system("cls");
 	printf(" ----- Placar Final: -----\n");
 	printf("Jogador 1: %d\n", pontuacaoJogadorUm);
 	printf("Jogador 2: %d\n", pontuacaoJogadorDois);
-	printf("Digite 1 caso deseje voltar ao menu: \n");
+	printf("Digite 1 para voltar ao menu: \n");
 
 	fflush(stdin);
 	scanf("%d", &opcao);
@@ -277,30 +223,39 @@ void jogo() {
 }
 
 void instrucoes() {
-	system("cls");
-	printf("Para jogar utilize os números do teclado.\n");
-	printf("Cada número corresponde a uma posição.\n" );
-	printf("                 |                 |                \n");
-	printf("        1        |        2        |        3       \n");
-	printf("                 |                 |                \n");
-	printf("-----------------|-----------------|----------------\n");
-	printf("                 |                 |                \n");
-	printf("        4        |        5        |        6       \n");
-	printf("                 |                 |                \n");
-	printf("-----------------|-----------------|----------------\n");
-	printf("                 |                 |                \n");
-	printf("        9        |        8        |        9       \n");
-	printf("                 |                 |                \n");
-
+	int opcao;
+	
+	do{
+		system("cls");
+		printf("Para jogar utilize os numeros do teclado.\n");
+		printf("Cada numero corresponde a uma posicao.\n" );
+		printf("                 |                 |                \n");
+		printf("        1        |        2        |        3       \n");
+		printf("                 |                 |                \n");
+		printf("-----------------|-----------------|----------------\n");
+		printf("                 |                 |                \n");
+		printf("        4        |        5        |        6       \n");
+		printf("                 |                 |                \n");
+		printf("-----------------|-----------------|----------------\n");
+		printf("                 |                 |                \n");
+		printf("        9        |        8        |        9       \n");
+		printf("                 |                 |                \n");
+		printf("\n\nDigite 1 para voltar ao menu: ");
+		scanf("%d", &opcao);
+		
+		if(opcao == 1){
+			system("cls");
+			main();
+		}
+	}while(opcao != 1);
 }
 
 
 
 int main() {
-	setlocale(LC_ALL, " ");
 	int opcao;
 	
-	printf("\t####BEM VINDO AO JOGO DA VELHA####\n\n");
+	printf("\t####BEM VINDO AO JOGO DA VELHA ####\n\n");
 	printf("01 - Iniciar o jogo.");
 	printf("\n02 - Instrucoes.");
 	printf("\n03 - Sair.");
@@ -319,7 +274,7 @@ int main() {
 			abort();
 			break;
 		default:
-		printf("Opção inválida!\n");
+		printf("Opção invalida!\n");
 		break;
 	}	
 }
