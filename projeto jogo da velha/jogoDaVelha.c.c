@@ -81,7 +81,7 @@ void jogo() {
 			    linha = (posicao - 1) / 3;
 			    coluna = (posicao - 1) % 3;
 			
-			    if (posicao < 1 || posicao > 9 || jogoVelha[linha][coluna] != ' ' && !posicao >= 1 && !posicao <= 9) {
+			    if (posicao < 1 || posicao > 9 || jogoVelha[linha][coluna] != ' ') {
 			        printf("Posicao invalida. Por favor, escolha outra posicao.\n");
 			    }
 			    
@@ -274,7 +274,7 @@ int main() {
 			abort();
 			break;
 		default:
-		printf("Opção invalida!\n");
+		printf("Opcao invalida!\n");
 		break;
 	}	
 }
